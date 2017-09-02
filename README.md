@@ -1,4 +1,6 @@
-# TsGundemAppWeb - TeknoSeyir Haftalık Gündem Değerlendirmeleri
+# TsGundemAppWeb
+
+### TeknoSeyir Haftalık Gündem Değerlendirmeleri
 
 > teknoseyir.com
 
