@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
     private viewTypeOptions: ViewTypeModel = new ViewTypeModel();
 
     ngOnInit() {
-        this.SetViewTypeOptions(ViewTypeEnum.ViewMainList)
+        this.SetViewTypeOptions(ViewTypeEnum.ViewMainList);
     }
 
     private SetViewTypeOptions(viewType: ViewTypeEnum) {
@@ -37,6 +37,11 @@ export class HomeComponent implements OnInit {
                 break;
             }
         }
+    }
+
+    private ChangeSearchInput(event: any) {
+        console.clear();
+        console.log(event.target.value);
     }
 
 }
