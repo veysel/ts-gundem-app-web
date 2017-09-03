@@ -11,6 +11,9 @@ import { ViewTypeEnum } from './Enums/view.type.enum';
 export class HomeComponent implements OnInit {
 
     private viewTypeOptions: ViewTypeModel = new ViewTypeModel();
+    private viewMainListOptions = {
+        yearList: new Array<{ text: string, count: number }>()
+    }
 
     ngOnInit() {
         this.SetViewTypeOptions(ViewTypeEnum.ViewMainList);
