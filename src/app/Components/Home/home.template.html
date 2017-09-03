@@ -1,3 +1,7 @@
 <div>
-    Home Template - For Test
+    <div *ngIf="viewTypeOptions.ViewSearch">Search</div>
+    <div *ngIf="viewTypeOptions.ViewMainList">Main List</div>
+    <div *ngIf="viewTypeOptions.ViewPodcastList">Podcast List</div>
+    <div *ngIf="viewTypeOptions.ViewDetails">Details</div>
+    <div *ngIf="viewTypeOptions.ViewMediaPlayer">Media Player</div>
 </div>
