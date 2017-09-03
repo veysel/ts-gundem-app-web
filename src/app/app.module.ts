@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './Components/Home/home.component';
 
 import { HomeService } from './Components/Home/Services/home.service';
+import { HomeDataService } from './Components/Home/Services/home.data.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HomeService } from './Components/Home/Services/home.service';
     HttpModule
   ],
   providers: [
-    HomeService
+    HomeService,
+    HomeDataService
   ],
   bootstrap: [AppComponent]
 })
