@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ViewTypeModel } from './Models/view.type.model';
+import { YearModel } from './Models/year.model';
 
 import { ViewTypeEnum } from './Enums/view.type.enum';
 
@@ -12,7 +13,7 @@ export class HomeComponent implements OnInit {
 
     private viewTypeOptions: ViewTypeModel = new ViewTypeModel();
     private viewMainListOptions = {
-        yearList: new Array<{ text: string, count: number }>()
+        yearList: new Array<YearModel>()
     }
 
     ngOnInit() {
