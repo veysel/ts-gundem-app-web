@@ -25,6 +25,11 @@ export class HomeComponent implements OnInit {
     public viewPodcastDetailsOptions = {
         podcast: new PodcastModel()
     };
+    public viewMediaPlayerOptions = {
+        mediaAudio: new Audio(),
+        mediaPlayerTitle: "",
+        podcast: new PodcastModel()
+    };
 
     constructor(
         private _homeService: HomeService,
@@ -97,6 +102,19 @@ export class HomeComponent implements OnInit {
 
     private BackToViewPodcastList() {
         this.SetViewTypeOptions(ViewTypeEnum.ViewPodcastList);
+    }
+
+    private PlayPodcast(tempPodcastModel: PodcastModel) {
+        this.viewMediaPlayerOptions.podcast = tempPodcastModel;
+        this.viewMediaPlayerOptions.mediaPlayerTitle = this.viewMediaPlayerOptions.podcast.titlePodcast;
+        this.viewMediaPlayerOptions.mediaAudio.src = this.viewMediaPlayerOptions.podcast.podcastLink;
+        this.viewMediaPlayerOptions.mediaAudio.play();
+    }
+
+    private StopPodcast() {
+        this.viewMediaPlayerOptions.mediaPlayerTitle = "";
+        this.viewMediaPlayerOptions.podcast = new PodcastModel();
+        this.viewMediaPlayerOptions.mediaAudio.pause();
     }
 
 }

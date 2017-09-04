@@ -79,6 +79,8 @@
                     </button>
                     <div>&nbsp;</div>
                     <div class="alert alert-secondary" role="alert">
+                        <div (click)="PlayPodcast(viewPodcastDetailsOptions.podcast)" class="rounded-circle text-center btn btn-info float-right">Başlat</div>
+                        <br>
                         <span style="font-size:13px;font-weight:bold;">Başlık : </span>
                         <span style="font-size:13px;">{{viewPodcastDetailsOptions.podcast.titlePodcast}}</span>
                         <br>
@@ -130,5 +132,15 @@
             </div>
         </div>
     </div>
-    <div *ngIf="viewTypeOptions.ViewMediaPlayer">Media Player</div>
+    <div *ngIf="viewTypeOptions.ViewMediaPlayer">
+        <div class="alert bg-danger btn-block text-center fixed-bottom mb-0" style="color:white;font-size:12px;">
+            <div class="float-left">
+                <button (click)="StopPodcast()" *ngIf="viewMediaPlayerOptions.mediaPlayerTitle" class="btn btn-secondary">Durdur</button>
+                <button (click)="GoToViewPodcastDetails(viewMediaPlayerOptions.podcast.totalCount)" *ngIf="viewMediaPlayerOptions.mediaPlayerTitle"
+                    class="btn btn-secondary">Detay Sayfası</button>
+            </div>
+            <span *ngIf="!viewMediaPlayerOptions.mediaPlayerTitle">Podcast Seçilmedi !</span>
+            <span>{{viewMediaPlayerOptions.mediaPlayerTitle}}</span>
+        </div>
+    </div>
 </div>
