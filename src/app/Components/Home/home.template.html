@@ -14,7 +14,8 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col col-6">
-                    <button *ngFor="let member of viewMainListOptions.yearList" type="button" class="btn btn-secondary alert-secondary btn-block">
+                    <button (click)="GoToViewPodcastList(member.yearText)" *ngFor="let member of viewMainListOptions.yearList" type="button"
+                        class="btn btn-secondary alert-secondary btn-block">
                         <span>
                             <span class="float-left">{{member.yearText}}</span>
                             <span class="badge badge-secondary float-right">Toplam : {{member.yearCount}}</span>
@@ -24,7 +25,49 @@
             </div>
         </div>
     </div>
-    <div *ngIf="viewTypeOptions.ViewPodcastList">Podcast List</div>
+    <div *ngIf="viewTypeOptions.ViewPodcastList">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col col-6">
+                    <button (click)="GoToViewMainList()" type="button" class="btn btn-info alert-info btn-block">
+                        <span>
+                            <span class="float-center">Geri</span>
+                        </span>
+                    </button>
+                    <div class="p-3">
+                        &nbsp;
+                        <div class="float-right" style="font-size:13px;">
+                            Bulunan Sonuç : {{viewPodcastListOptions.podcastList.length}}
+                        </div>
+                    </div>
+                    <div class="alert alert-secondary" role="alert" *ngFor="let member of viewPodcastListOptions.podcastList">
+                        <span style="font-size:13px;font-weight:bold;">Başlık : </span>
+                        <span style="font-size:13px;">{{member.titlePodcast}}</span>
+                        <br>
+                        <span style="font-size:13px;font-weight:bold;">Yıl : </span>
+                        <span style="font-size:13px;">{{member.year}}</span>
+                        <br>
+                        <span style="font-size:13px;font-weight:bold;">Sayı : </span>
+                        <span style="font-size:13px;">{{member.count}}</span>
+                        <br>
+                        <span style="font-size:13px;font-weight:bold;">Toplam Sayı : </span>
+                        <span style="font-size:13px;">{{member.totalCount}}</span>
+                        <br>
+                        <span style="font-size:13px;font-weight:bold;">Yüklenme Tarihi : </span>
+                        <span style="font-size:13px;">{{member.uploadDate}}</span>
+                        <br>
+                        <span style="font-size:13px;font-weight:bold;">İçerik Sayısı : </span>
+                        <span style="font-size:13px;">{{member.content.length}}</span>
+                        <br>
+                        <br>
+                        <button class="btn btn-secondary btn-block">
+                            <span>Detay</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div *ngIf="viewTypeOptions.ViewDetails">Details</div>
     <div *ngIf="viewTypeOptions.ViewMediaPlayer">Media Player</div>
 </div>

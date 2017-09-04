@@ -39,4 +39,11 @@ export class HomeDataService {
         return tempYearList;
     }
 
+    public GetPodcastList(tempModelList: Array<PodcastModel>, tempYear: string): Array<PodcastModel> {
+        let tempPodcastList: Array<PodcastModel> = new Array<PodcastModel>();
+
+        tempModelList = tempModelList.filter(member => member.year == tempYear);
+        return tempModelList;
+    }
+
 }
