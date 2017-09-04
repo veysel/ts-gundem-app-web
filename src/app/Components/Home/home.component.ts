@@ -15,14 +15,14 @@ import { HomeDataService } from './Services/home.data.service';
 })
 export class HomeComponent implements OnInit {
 
-    private viewTypeOptions: ViewTypeModel = new ViewTypeModel();
-    private viewMainListOptions = {
+    public viewTypeOptions: ViewTypeModel = new ViewTypeModel();
+    public viewMainListOptions = {
         yearList: new Array<YearModel>()
     };
-    private viewPodcastListOptions = {
+    public viewPodcastListOptions = {
         podcastList: new Array<PodcastModel>()
     };
-    private viewPodcastDetailsOptions = {
+    public viewPodcastDetailsOptions = {
         podcast: new PodcastModel()
     };
 
