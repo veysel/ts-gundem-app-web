@@ -105,11 +105,22 @@
                         <br>
                         <span style="font-size:13px;font-weight:bold;">Site Linki : </span>
                         <a href="{{viewPodcastDetailsOptions.podcast.siteLink}}" target="_blank" class="badge badge-danger m-1">TeknoSeyir</a>
+                        <span *ngIf="viewPodcastDetailsOptions.podcast.videoLink != '#'">
+                            <br>
+                            <span style="font-size:13px;font-weight:bold;">Video Linki : </span>
+                        <a href="{{viewPodcastDetailsOptions.podcast.videoLink}}" target="_blank" class="badge badge-danger m-1">YouTube</a>
+                        </span>
+                        <br>
+                        <span style="font-size:13px;font-weight:bold;">Podcast Linki : </span>
+                        <a href="{{viewPodcastDetailsOptions.podcast.podcastLink}}" target="_blank" class="badge badge-success m-1">Ses Dosyası İndir</a>
                         <br>
                         <span style="font-size:13px;font-weight:bold;">İçerik Sayısı : </span>
                         <span style="font-size:13px;">{{viewPodcastDetailsOptions.podcast.content.length}}</span>
                     </div>
                     <div>&nbsp;</div>
+                    <div class="text-center">
+                        <span class="badge badge-pill badge-secondary">İçerik Listesi</span>
+                    </div>
                     <div class="alert alert-secondary" role="alert" *ngFor="let member of viewPodcastDetailsOptions.podcast.content">
                         <span style="font-size:13px;font-weight:bold;">{{member.contentText}}</span>
                         <br>
