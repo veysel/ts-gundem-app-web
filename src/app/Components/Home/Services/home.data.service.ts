@@ -55,4 +55,11 @@ export class HomeDataService {
         return tempModel;
     }
 
+    public SearchPodcastList(tempModelList: Array<PodcastModel>, tempText: string): Array<PodcastModel> {
+        let tempPodcastList: Array<PodcastModel> = new Array<PodcastModel>();
+
+        tempPodcastList = tempModelList.filter(x => x.year.indexOf(tempText) > -1);
+        return tempPodcastList;
+    }
+
 }

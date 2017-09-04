@@ -65,8 +65,16 @@ export class HomeComponent implements OnInit {
     }
 
     private ChangeSearchInput(event: any) {
-        console.clear();
-        console.log(event.target.value);
+        let tempText: string = event.target.value;
+        if (tempText.length < 2) {
+            return;
+        }
+
+        this.SetViewTypeOptions(ViewTypeEnum.ViewPodcastList);
+        this.viewPodcastListOptions.podcastList = new Array<PodcastModel>();
+        this._homeService.GetAllData().subscribe(member => {
+            this.viewPodcastListOptions.podcastList = this._homeDataService.SearchPodcastList(member.list, tempText);
+        });
     }
 
     private UpdateYearList() {
