@@ -46,4 +46,13 @@ export class HomeDataService {
         return tempModelList;
     }
 
+    public GetPodcast(tempModelList: Array<PodcastModel>, tempTotalCount: number): PodcastModel {
+        let tempModel = new PodcastModel();
+
+        if (tempModelList.filter(member => member.totalCount == tempTotalCount).length > 0) {
+            tempModel = tempModelList.filter(member => member.totalCount == tempTotalCount)[0];
+        }
+        return tempModel;
+    }
+
 }

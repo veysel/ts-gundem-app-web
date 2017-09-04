@@ -22,6 +22,9 @@ export class HomeComponent implements OnInit {
     private viewPodcastListOptions = {
         podcastList: new Array<PodcastModel>()
     };
+    private viewPodcastDetailsOptions = {
+        podcast: new PodcastModel()
+    };
 
     constructor(
         private _homeService: HomeService,
@@ -63,7 +66,7 @@ export class HomeComponent implements OnInit {
 
     private UpdateYearList() {
         this.viewMainListOptions.yearList = new Array<YearModel>();
-        
+
         this._homeService.GetAllData().subscribe(member => {
             this.viewMainListOptions.yearList = this._homeDataService.GetYearList(member.list);
         });
@@ -81,6 +84,19 @@ export class HomeComponent implements OnInit {
     private GoToViewMainList() {
         this.SetViewTypeOptions(ViewTypeEnum.ViewMainList);
         this.UpdateYearList();
+    }
+
+    private GoToViewPodcastDetails(totalCount: number) {
+        this.SetViewTypeOptions(ViewTypeEnum.ViewDetails);
+
+        this.viewPodcastDetailsOptions.podcast = new PodcastModel();
+        this._homeService.GetAllData().subscribe(member => {
+            this.viewPodcastDetailsOptions.podcast = this._homeDataService.GetPodcast(member.list, totalCount);
+        });
+    }
+
+    private BackToViewPodcastList() {
+        this.SetViewTypeOptions(ViewTypeEnum.ViewPodcastList);
     }
 
 }

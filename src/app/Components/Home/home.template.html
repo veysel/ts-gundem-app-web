@@ -60,7 +60,7 @@
                         <span style="font-size:13px;">{{member.content.length}}</span>
                         <br>
                         <br>
-                        <button class="btn btn-secondary btn-block">
+                        <button (click)="GoToViewPodcastDetails(member.totalCount)" class="btn btn-secondary btn-block">
                             <span>Detay</span>
                         </button>
                     </div>
@@ -68,6 +68,56 @@
             </div>
         </div>
     </div>
-    <div *ngIf="viewTypeOptions.ViewDetails">Details</div>
+    <div *ngIf="viewTypeOptions.ViewDetails">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col col-8">
+                    <button (click)="BackToViewPodcastList()" type="button" class="btn btn-info alert-info btn-block">
+                        <span>
+                            <span class="float-center">Geri</span>
+                        </span>
+                    </button>
+                    <div>&nbsp;</div>
+                    <div class="alert alert-secondary" role="alert">
+                        <span style="font-size:13px;font-weight:bold;">Başlık : </span>
+                        <span style="font-size:13px;">{{viewPodcastDetailsOptions.podcast.titlePodcast}}</span>
+                        <br>
+                        <span style="font-size:13px;font-weight:bold;">Yıl : </span>
+                        <span style="font-size:13px;">{{viewPodcastDetailsOptions.podcast.year}}</span>
+                        <br>
+                        <span style="font-size:13px;font-weight:bold;">Sayı : </span>
+                        <span style="font-size:13px;">{{viewPodcastDetailsOptions.podcast.count}}</span>
+                        <br>
+                        <span style="font-size:13px;font-weight:bold;">Toplam Sayı : </span>
+                        <span style="font-size:13px;">{{viewPodcastDetailsOptions.podcast.totalCount}}</span>
+                        <br>
+                        <span style="font-size:13px;font-weight:bold;">Yüklenme Tarihi : </span>
+                        <span style="font-size:13px;">{{viewPodcastDetailsOptions.podcast.uploadDate}}</span>
+                        <br>
+                        <span style="font-size:13px;font-weight:bold;">Başlangıç Tarihi : </span>
+                        <span style="font-size:13px;">{{viewPodcastDetailsOptions.podcast.rangeFirstDate}}</span>
+                        <br>
+                        <span style="font-size:13px;font-weight:bold;">Bitiş Tarihi : </span>
+                        <span style="font-size:13px;">{{viewPodcastDetailsOptions.podcast.rangeLastDate}}</span>
+                        <br>
+                        <span style="font-size:13px;font-weight:bold;">Açıklama : </span>
+                        <span style="font-size:13px;">{{viewPodcastDetailsOptions.podcast.explanationPodcast}}</span>
+                        <br>
+                        <span style="font-size:13px;font-weight:bold;">Site Linki : </span>
+                        <a href="{{viewPodcastDetailsOptions.podcast.siteLink}}" target="_blank" class="badge badge-danger m-1">TeknoSeyir</a>
+                        <br>
+                        <span style="font-size:13px;font-weight:bold;">İçerik Sayısı : </span>
+                        <span style="font-size:13px;">{{viewPodcastDetailsOptions.podcast.content.length}}</span>
+                    </div>
+                    <div>&nbsp;</div>
+                    <div class="alert alert-secondary" role="alert" *ngFor="let member of viewPodcastDetailsOptions.podcast.content">
+                        <span style="font-size:13px;font-weight:bold;">{{member.contentText}}</span>
+                        <br>
+                        <a *ngFor="let link of member.contentLink" href="{{link}}" target="_blank" class="badge badge-info m-1">Link</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div *ngIf="viewTypeOptions.ViewMediaPlayer">Media Player</div>
 </div>
