@@ -42,8 +42,8 @@ export class HomeDataService {
     public GetPodcastList(tempModelList: Array<PodcastModel>, tempYear: string): Array<PodcastModel> {
         let tempPodcastList: Array<PodcastModel> = new Array<PodcastModel>();
 
-        tempModelList = tempModelList.filter(member => member.year == tempYear);
-        return tempModelList;
+        tempPodcastList = tempModelList.filter(member => member.year == tempYear);
+        return tempPodcastList;
     }
 
     public GetPodcast(tempModelList: Array<PodcastModel>, tempTotalCount: number): PodcastModel {
