@@ -4,6 +4,7 @@ import { HomeService } from './home.service';
 
 import { PodcastModel } from '../Models/podcast.model';
 import { YearModel } from '../Models/year.model';
+import { SearchListModel } from '../Models/search.list.model';
 
 @Injectable()
 export class HomeDataService {
@@ -58,7 +59,27 @@ export class HomeDataService {
     public SearchPodcastList(tempModelList: Array<PodcastModel>, tempText: string): Array<PodcastModel> {
         let tempPodcastList: Array<PodcastModel> = new Array<PodcastModel>();
 
-        tempPodcastList = tempModelList.filter(x => x.year.indexOf(tempText) > -1);
+        // TODO: This Is Spaghetti. Will Change After..
+        let tempSearhList: Array<SearchListModel> = new Array<SearchListModel>();
+        tempModelList.forEach(memberPodcast => {
+            memberPodcast.content.forEach(memberContent => {
+                let tempModel = new SearchListModel();
+                tempModel.text = memberContent.contentText;
+
+                tempModel.podcast = new PodcastModel();
+                tempModel.podcast.year = memberPodcast.year;
+                tempModel.podcast.count = memberPodcast.count;
+                tempModel.podcast.totalCount = memberPodcast.totalCount;
+                tempModel.podcast.uploadDate = memberPodcast.uploadDate;
+                tempModel.podcast.content = memberPodcast.content;
+                tempModel.podcast.titlePodcast = memberContent.contentText;
+
+                tempSearhList.push(tempModel);
+            });
+        });
+
+        tempPodcastList = tempSearhList.filter(x => x.text.toLowerCase().match(tempText.toLowerCase())).map(v => { return v.podcast; });
+
         return tempPodcastList;
     }
 
