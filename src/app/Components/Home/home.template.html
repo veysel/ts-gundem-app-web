@@ -2,7 +2,7 @@
     <div *ngIf="viewTypeOptions.ViewSearch">
         <div class="container">
             <div class="row justify-content-center p-4">
-                <div class="col col-7">
+                <div class="col col-lg-7 col-md-12 col-sm-12 col-xs-12">
                     <div class="form-group">
                         <input (keyup)="ChangeSearchInput($event)" type="text" class="form-control" placeholder="Arama yapmak için bir şeyler yazın...">
                     </div>
@@ -13,7 +13,7 @@
     <div *ngIf="viewTypeOptions.ViewMainList">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col col-6">
+                <div class="col col-lg-6 col-md-12 col-sm-12 col-xs-12">
                     <button (click)="GoToViewPodcastList(member.yearText)" *ngFor="let member of viewMainListOptions.yearList" type="button"
                         class="btn btn-secondary alert-secondary btn-block">
                         <span>
@@ -35,7 +35,7 @@
     <div *ngIf="viewTypeOptions.ViewPodcastList">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col col-6">
+                <div class="col col-lg-6 col-md-12 col-sm-12 col-xs-12">
                     <button (click)="GoToViewMainList()" type="button" class="btn btn-info alert-info btn-block">
                         <span>
                             <span class="float-center">Geri</span>
@@ -78,7 +78,7 @@
     <div *ngIf="viewTypeOptions.ViewDetails">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col col-8">
+                <div class="col col-lg-8 col-md-12 col-sm-12 col-xs-12">
                     <button (click)="BackToViewPodcastList()" type="button" class="btn btn-info alert-info btn-block">
                         <span>
                             <span class="float-center">Geri</span>
