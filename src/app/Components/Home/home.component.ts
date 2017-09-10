@@ -43,7 +43,6 @@ export class HomeComponent implements OnInit {
     ngOnInit() {
         this.SetViewTypeOptions(ViewTypeEnum.ViewMainList);
         this.UpdateYearList();
-        this.CalculateProgressProject();
     }
 
     private SetViewTypeOptions(viewType: ViewTypeEnum) {
@@ -88,6 +87,8 @@ export class HomeComponent implements OnInit {
         this._homeService.GetAllData().subscribe(member => {
             this.viewMainListOptions.yearList = this._homeDataService.GetYearList(member.list);
         });
+
+        this.CalculateProgressProject();
     }
 
     private GoToViewPodcastList(year: string) {
@@ -128,6 +129,9 @@ export class HomeComponent implements OnInit {
     }
 
     private CalculateProgressProject() {
+        this.viewProjectStateOptions.currentCount = 0;
+        this.viewProjectStateOptions.percent = 0;
+
         this._homeService.GetAllData().subscribe(member => {
             this.viewProjectStateOptions.currentCount = member.list.length;
             this.viewProjectStateOptions.percent = (this.viewProjectStateOptions.currentCount / this.viewProjectStateOptions.totalCount) * 100;
