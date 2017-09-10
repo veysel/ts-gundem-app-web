@@ -30,6 +30,11 @@ export class HomeComponent implements OnInit {
         mediaPlayerTitle: "",
         podcast: new PodcastModel()
     };
+    public viewProjectStateOptions = {
+        currentCount: 0,
+        totalCount: 333,
+        percent: 0
+    };
 
     constructor(
         private _homeService: HomeService,
@@ -39,6 +44,7 @@ export class HomeComponent implements OnInit {
     ngOnInit() {
         this.SetViewTypeOptions(ViewTypeEnum.ViewMainList);
         this.UpdateYearList();
+        this.CalculateProgressProject();
     }
 
     private SetViewTypeOptions(viewType: ViewTypeEnum) {
@@ -123,6 +129,13 @@ export class HomeComponent implements OnInit {
         this.viewMediaPlayerOptions.mediaPlayerTitle = "";
         this.viewMediaPlayerOptions.podcast = new PodcastModel();
         this.viewMediaPlayerOptions.mediaAudio.pause();
+    }
+
+    private CalculateProgressProject() {
+        this._homeService.GetAllData().subscribe(member => {
+            this.viewProjectStateOptions.currentCount = member.list.length;
+            this.viewProjectStateOptions.percent = (this.viewProjectStateOptions.currentCount / this.viewProjectStateOptions.totalCount) * 100;
+        });
     }
 
 }
