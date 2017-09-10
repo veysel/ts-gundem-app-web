@@ -153,13 +153,14 @@
     <div *ngIf="viewTypeOptions.ViewMediaPlayer" class="mt-5">
         <br>
         <div class="alert bg-danger btn-block text-center fixed-bottom mb-0" style="color:white;font-size:12px;">
-            <div class="float-left">
-                <button (click)="StopPodcast()" *ngIf="viewMediaPlayerOptions.mediaPlayerTitle" class="btn btn-secondary">Durdur</button>
+            <div class="float-right mb-1">
                 <button (click)="GoToViewPodcastDetails(viewMediaPlayerOptions.podcast.totalCount)" *ngIf="viewMediaPlayerOptions.mediaPlayerTitle"
-                    class="btn btn-secondary">Detay Sayfası</button>
+                    class="btn btn-secondary btn-sm">Detay Sayfası</button>
+                <button (click)="StopPodcast()" *ngIf="viewMediaPlayerOptions.mediaPlayerTitle" class="btn btn-secondary btn-sm">x</button>
             </div>
             <span *ngIf="!viewMediaPlayerOptions.mediaPlayerTitle">Podcast Seçilmedi !</span>
             <span>{{viewMediaPlayerOptions.mediaPlayerTitle}}</span>
+            <audio *ngIf="viewMediaPlayerOptions.mediaPlayerTitle" autoplay class="btn-block rounded" controls src={{viewMediaPlayerOptions.podcast.podcastLink}}></audio>
         </div>
     </div>
 </div>

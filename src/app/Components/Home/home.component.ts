@@ -26,7 +26,6 @@ export class HomeComponent implements OnInit {
         podcast: new PodcastModel()
     };
     public viewMediaPlayerOptions = {
-        mediaAudio: new Audio(),
         mediaPlayerTitle: "",
         podcast: new PodcastModel()
     };
@@ -121,14 +120,11 @@ export class HomeComponent implements OnInit {
     private PlayPodcast(tempPodcastModel: PodcastModel) {
         this.viewMediaPlayerOptions.podcast = tempPodcastModel;
         this.viewMediaPlayerOptions.mediaPlayerTitle = this.viewMediaPlayerOptions.podcast.titlePodcast;
-        this.viewMediaPlayerOptions.mediaAudio.src = this.viewMediaPlayerOptions.podcast.podcastLink;
-        this.viewMediaPlayerOptions.mediaAudio.play();
     }
 
     private StopPodcast() {
         this.viewMediaPlayerOptions.mediaPlayerTitle = "";
         this.viewMediaPlayerOptions.podcast = new PodcastModel();
-        this.viewMediaPlayerOptions.mediaAudio.pause();
     }
 
     private CalculateProgressProject() {
