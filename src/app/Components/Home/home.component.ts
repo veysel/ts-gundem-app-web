@@ -65,7 +65,7 @@ export class HomeComponent implements OnInit {
 
     private ChangeSearchInput(event: any) {
         let tempText: string = event.target.value;
-        if (tempText.length < 2) {
+        if (tempText.length < 3) {
             return;
         }
 
