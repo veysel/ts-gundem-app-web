@@ -4,7 +4,10 @@
 
 > teknoseyir.com
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2.
+## Demo Link
+
+[Weather Demo Link](https://veysel.github.io/project/weather/)
+
 
 ## Development server
 
