@@ -6,7 +6,7 @@
 
 ## Demo Link
 
-[Weather Demo Link](https://veysel.github.io/project/ts-gundem/)
+[ts-gundem Demo Link](https://veysel.github.io/project/ts-gundem/)
 
 
 ## Development server
